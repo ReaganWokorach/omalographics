@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mainNav.classList.toggle('is-open');
       navToggle.classList.toggle('is-open', isOpen);
       navToggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.classList.toggle('nav-open', isOpen);
     });
 
     mainNav.querySelectorAll('a').forEach(link => {
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainNav.classList.remove('is-open');
         navToggle.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
       });
     });
   }
