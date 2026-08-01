@@ -54,6 +54,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- Service detail modal ---------- */
+  const serviceItems = document.querySelectorAll('.service-item');
+  const serviceModal = document.getElementById('serviceModal');
+  if (serviceItems.length && serviceModal) {
+    const modalIconUse = serviceModal.querySelector('#serviceModalIcon use');
+    const modalCat = document.getElementById('serviceModalCat');
+    const modalTitle = document.getElementById('serviceModalTitle');
+    const modalDesc = document.getElementById('serviceModalDesc');
+    let lastFocused = null;
+
+    const openServiceModal = (btn) => {
+      const { title, desc, icon, cat } = btn.dataset;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalCat.textContent = cat || '';
+      if (modalIconUse) modalIconUse.setAttribute('href', '#icon-' + icon);
+      lastFocused = btn;
+      serviceModal.classList.add('is-open');
+      serviceModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('nav-open');
+      serviceModal.querySelector('.service-modal-close').focus();
+    };
+    const closeServiceModal = () => {
+      serviceModal.classList.remove('is-open');
+      serviceModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('nav-open');
+      if (lastFocused) lastFocused.focus();
+    };
+
+    serviceItems.forEach(btn => {
+      btn.addEventListener('click', () => openServiceModal(btn));
+    });
+    serviceModal.querySelectorAll('[data-close-modal]').forEach(el => {
+      el.addEventListener('click', closeServiceModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && serviceModal.classList.contains('is-open')) closeServiceModal();
+    });
+  }
+
   /* ---------- Animated stat counters ---------- */
   const counters = document.querySelectorAll('[data-count-to]');
   if (counters.length) {

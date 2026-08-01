@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img">
+<rect width="800" height="600" fill="#e7f1ea"/>
+
+<rect x="0" y="0" width="800" height="600" rx="0" fill="#e7f1ea" opacity="1"/>
+<circle cx="60.0" cy="60.0" r="4.50" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="60.0" r="4.12" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="60.0" r="3.75" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="60.0" r="3.38" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="60.0" r="3.00" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="60.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="60.0" cy="82.0" r="4.12" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="82.0" r="3.75" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="82.0" r="3.38" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="82.0" r="3.00" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="82.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="82.0" r="2.25" fill="#0f3d24" opacity="0.3"/>
+<circle cx="60.0" cy="104.0" r="3.75" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="104.0" r="3.38" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="104.0" r="3.00" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="104.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="104.0" r="2.25" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="104.0" r="1.87" fill="#0f3d24" opacity="0.3"/>
+<circle cx="60.0" cy="126.0" r="3.38" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="126.0" r="3.00" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="126.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="126.0" r="2.25" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="126.0" r="1.87" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="126.0" r="1.50" fill="#0f3d24" opacity="0.3"/>
+<circle cx="60.0" cy="148.0" r="3.00" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="148.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="148.0" r="2.25" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="148.0" r="1.87" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="148.0" r="1.50" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="148.0" r="1.12" fill="#0f3d24" opacity="0.3"/>
+<circle cx="60.0" cy="170.0" r="2.62" fill="#0f3d24" opacity="0.3"/>
+<circle cx="82.0" cy="170.0" r="2.25" fill="#0f3d24" opacity="0.3"/>
+<circle cx="104.0" cy="170.0" r="1.87" fill="#0f3d24" opacity="0.3"/>
+<circle cx="126.0" cy="170.0" r="1.50" fill="#0f3d24" opacity="0.3"/>
+<circle cx="148.0" cy="170.0" r="1.12" fill="#0f3d24" opacity="0.3"/>
+<circle cx="170.0" cy="170.0" r="0.75" fill="#0f3d24" opacity="0.3"/>
+<g opacity="0.55" stroke="#d81f2a" stroke-width="2"><line x1="729.0" y1="540" x2="751.0" y2="540"/><line x1="740" y1="529.0" x2="740" y2="551.0"/></g>
+<g transform="translate(190,120)">
+  <rect x="0" y="0" width="420" height="280" rx="16" fill="#f7f4ec"/>
+  <rect x="30" y="30" width="360" height="150" rx="8" fill="#0f3d24"/>
+  <path d="M60 150 L110 80 L150 120 L210 60 L280 150 L340 100" fill="none" stroke="#f7f4ec" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <circle cx="110" cy="80" r="8" fill="#d81f2a"/>
+  <circle cx="210" cy="60" r="8" fill="#d81f2a"/>
+  <rect x="30" y="200" width="90" height="14" rx="7" fill="#1c6b3f" opacity="0.5"/>
+  <rect x="130" y="200" width="120" height="14" rx="7" fill="#171a15" opacity="0.15"/>
+  <rect x="30" y="226" width="200" height="12" rx="6" fill="#171a15" opacity="0.12"/>
+  <circle cx="360" cy="222" r="24" fill="#d81f2a"/>
+  <path d="M350 222l7 7 14-16" fill="none" stroke="#f7f4ec" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<text x="34" y="570" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2" fill="#171a15" opacity="0.45">DESIGN CRAFT</text>
+</svg>
