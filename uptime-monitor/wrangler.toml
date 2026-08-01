@@ -1,0 +1,24 @@
+name = "omalo-uptime-monitor"
+main = "src/index.js"
+compatibility_date = "2026-07-29"
+
+# Runs every 5 minutes. Cron expressions are UTC.
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Reuses the same Cloudflare Email Service as the main site
+# (Compute > Email Service > Email Sending must be onboarded first).
+[[send_email]]
+name = "SEND_EMAIL"
+
+# Stores whether the last check was "up" or "down" so alerts only fire on
+# a state CHANGE, not on every single check while an outage continues.
+# Create with: npx wrangler kv namespace create UPTIME_STATE
+[[kv_namespaces]]
+binding = "UPTIME_STATE"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+[vars]
+TARGET_URL = "https://www.omalographics.com/api/health"
+ALERT_EMAIL_TO = "you@yourdomain.com"
+ALERT_EMAIL_FROM = "alerts@yourdomain.com"

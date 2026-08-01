@@ -157,14 +157,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const formStatus = document.getElementById('formStatus');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('name').value.trim();
 
-      if (formStatus) {
-        formStatus.textContent = `Thanks${name ? ', ' + name : ''}. Your message is ready to send once this form is connected to an email or messaging service.`;
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const website = document.getElementById('website') ? document.getElementById('website').value : '';
+      const turnstileToken = typeof turnstile !== 'undefined'
+        ? turnstile.getResponse()
+        : (contactForm.querySelector('[name="cf-turnstile-response"]') || {}).value;
+
+      const setStatus = (text, isError) => {
+        if (!formStatus) return;
+        formStatus.textContent = text;
+        formStatus.classList.toggle('is-error', !!isError);
+      };
+
+      if (!turnstileToken) {
+        setStatus('Please complete the verification challenge before sending.', true);
+        return;
       }
-      contactForm.reset();
+
+      submitBtn.disabled = true;
+      setStatus('Sending your message…', false);
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ name, email, service, message, website, turnstileToken }),
+        });
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          setStatus(`Thanks${name ? ', ' + name : ''}. Your message has been sent — we will get back to you soon.`, false);
+          contactForm.reset();
+          if (typeof turnstile !== 'undefined') turnstile.reset();
+        } else {
+          setStatus(data.error || 'Something went wrong. Please try again.', true);
+          if (typeof turnstile !== 'undefined') turnstile.reset();
+        }
+      } catch (err) {
+        setStatus('Could not send your message. Please check your connection and try again.', true);
+        if (typeof turnstile !== 'undefined') turnstile.reset();
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 
