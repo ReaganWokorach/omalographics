@@ -1,0 +1,19 @@
+name = "omalo-graphics-website"
+compatibility_date = "2026-07-29"
+pages_build_output_dir = "."
+
+# Cloudflare Email Service — lets /functions/api/contact.js send a
+# notification email when the contact form is submitted, with no API key.
+# Requires: Compute > Email Service > Email Sending onboarded for your
+# domain in the Cloudflare dashboard. See SETUP.md.
+[[send_email]]
+name = "SEND_EMAIL"
+# Uncomment to restrict the binding to only ever send to one inbox:
+# destination_address = "you@yourdomain.com"
+
+# Non-secret environment variables. Secrets (TURNSTILE_SECRET_KEY) should be
+# added via the Pages dashboard (Settings > Environment variables > Encrypt)
+# or `wrangler pages secret put`, NOT written here.
+[vars]
+CONTACT_EMAIL_TO = "you@yourdomain.com"
+CONTACT_EMAIL_FROM = "noreply@yourdomain.com"
