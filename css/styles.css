@@ -8,11 +8,12 @@
    ========================================================= */
 
 :root{
-  --green-deep:   #0f3d24;
-  --green:        #1c6b3f;
+  /* Sampled directly from the Omalo Graphics Centre logo file. */
+  --green-deep:   #084927;
+  --green:        #0c6e3b;
   --green-soft:   #e7f1ea;
-  --red:          #d81f2a;
-  --red-deep:     #a3141c;
+  --red:          #ec1b21;
+  --red-deep:     #b3151a;
   --paper:        #f7f4ec;
   --paper-dim:    #efeadd;
   --ink:          #171a15;
