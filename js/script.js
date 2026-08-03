@@ -6,6 +6,24 @@
 (function () {
   'use strict';
 
+  /* ===================== SCROLL LOCK ===================== */
+  /* Shared by the mobile nav, service modal and gallery lightbox. Pairs
+     with the body.nav-open rule in styles.css (position:fixed, not
+     overflow:hidden) so it never breaks the sticky header in Safari. */
+  var lockedScrollY = 0;
+
+  var lockScroll = function () {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.top = -lockedScrollY + 'px';
+    document.body.classList.add('nav-open');
+  };
+
+  var unlockScroll = function () {
+    document.body.classList.remove('nav-open');
+    document.body.style.top = '';
+    window.scrollTo(0, lockedScrollY);
+  };
+
   /* ===================== MOBILE NAV ===================== */
   var navToggle = document.getElementById('navToggle');
   var mainNav = document.getElementById('mainNav');
@@ -15,13 +33,13 @@
       mainNav.classList.remove('is-open');
       navToggle.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-open');
+      unlockScroll();
     };
     var openNav = function () {
       mainNav.classList.add('is-open');
       navToggle.classList.add('is-open');
       navToggle.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('nav-open');
+      lockScroll();
     };
 
     navToggle.addEventListener('click', function () {
@@ -182,7 +200,7 @@
       lastFocused = document.activeElement;
       serviceModal.classList.add('is-open');
       serviceModal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('nav-open');
+      lockScroll();
 
       var closeBtn = serviceModal.querySelector('.service-modal-close');
       if (closeBtn) closeBtn.focus();
@@ -191,7 +209,7 @@
     var closeServiceModal = function () {
       serviceModal.classList.remove('is-open');
       serviceModal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('nav-open');
+      unlockScroll();
       if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
     };
 
@@ -228,12 +246,12 @@
       if (lightboxCap) lightboxCap.textContent = cap ? cap.textContent : '';
 
       lightbox.classList.add('is-open');
-      document.body.classList.add('nav-open');
+      lockScroll();
     };
 
     var closeLightbox = function () {
       lightbox.classList.remove('is-open');
-      document.body.classList.remove('nav-open');
+      unlockScroll();
       if (lightboxImg) lightboxImg.src = '';
     };
 

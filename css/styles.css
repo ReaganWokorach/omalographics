@@ -153,7 +153,19 @@ p:last-child{ margin-bottom:0; }
   .main-nav a{ font-size: 0.95rem; }
 }
 
-body.nav-open{ overflow: hidden; }
+/* Scroll lock for open mobile nav / modal / lightbox. Deliberately uses
+   position:fixed instead of overflow:hidden — overflow on body (an
+   ancestor of the sticky header) is what breaks position:sticky in
+   Safari/WebKit, sometimes permanently until a full reload. position:fixed
+   locks scroll without touching overflow, so the header stays sticky. The
+   JS sets top:-<scrollY>px when locking and restores the scroll position
+   when unlocking. */
+body.nav-open{
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
 
 /* ===================== HERO ===================== */
 .hero{
