@@ -157,6 +157,7 @@
     var panels = document.querySelectorAll('.tab-panel');
     var tabMediaImgs = document.querySelectorAll('.tab-media img[data-for-tab]');
     var tabMediaLabel = document.querySelector('.tab-media-label');
+    var tabMediaDesc = document.getElementById('tabMediaDesc');
 
     var activateTab = function (key) {
       Array.prototype.forEach.call(tabButtons, function (btn) {
@@ -164,6 +165,7 @@
         btn.classList.toggle('is-active', active);
         btn.setAttribute('aria-selected', active ? 'true' : 'false');
         if (active && tabMediaLabel) tabMediaLabel.textContent = btn.textContent;
+        if (active && tabMediaDesc) tabMediaDesc.textContent = btn.getAttribute('data-summary') || '';
       });
       Array.prototype.forEach.call(panels, function (panel) {
         panel.classList.toggle('is-active', panel.getAttribute('data-panel') === key);
