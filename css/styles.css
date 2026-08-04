@@ -419,8 +419,16 @@ body.nav-open{
 .contact-card h4{ font-family: var(--font-body); font-weight:800; margin-bottom:12px; color: var(--white); font-size:1.02rem; }
 .contact-card p, .contact-card a{ color: #d8dcd1; font-size:.95rem; }
 .contact-card a:hover{ color: var(--white); }
-.contact-note{ font-size:.85rem; color:#9aa190 !important; margin-top:6px !important; }
-.social-list{ display:flex; flex-direction:column; gap:8px; }
+.contact-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
+.contact-list li{ position:relative; padding-left:17px; }
+.contact-list li::before{
+  content:""; position:absolute; left:0; top:.55em; width:7px; height:7px;
+  border-radius:50%; background: var(--red);
+}
+.contact-or{
+  text-align:center; font-family: var(--font-mono); font-size:.78rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:#9aa190 !important; margin:12px 0 !important;
+}
 @media (max-width: 880px){ .contact-grid{ grid-template-columns: 1fr; } }
 
 .contact-form{
