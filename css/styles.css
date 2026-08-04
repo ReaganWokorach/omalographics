@@ -473,6 +473,13 @@ body.nav-open{
 .footer-links h5{ font-family: var(--font-body); font-weight:800; color:#fff; margin:0 0 14px; font-size:.9rem; text-transform:uppercase; letter-spacing:.06em; }
 .footer-links a{ display:block; color:#b7cabe; font-size:.92rem; margin-bottom:10px; }
 .footer-links a:hover{ color:#fff; }
+.footer-text{ color:#b7cabe; font-size:.92rem; margin:0 0 8px; line-height:1.4; }
+.footer-text em{ font-style:normal; color:#8fa896; }
+.footer-subhead{
+  font-family: var(--font-body); font-weight:800; color:#fff; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.06em; margin:16px 0 10px; padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding: 26px 0; flex-wrap:wrap; gap:10px; }
 .footer-bottom p{ margin:0; color:#8fa896; font-size:.82rem; }
 .footer-tagline{ font-family: var(--font-display); color: var(--red) !important; font-size:1rem; }
