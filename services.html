@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.min.css?v=5">
+<link rel="stylesheet" href="css/styles.min.css?v=6">
 </head>
 <body>
 
@@ -103,6 +103,7 @@
 </defs>
 </svg>
 
+<!-- same header on every page: logo left, nav right, burger on mobile -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="index.html" class="brand">
@@ -128,12 +129,12 @@
     <div class="wrap">
       <p class="eyebrow mono">Core Services</p>
       <h2 class="section-title">Everything from a business card to a full outdoor campaign.</h2>
-      <p class="services-intro">Pick a category to see what falls under it, then tap any service for a closer look. Most projects end up drawing from more than one.</p>
+      <p class="services-intro">Pick a category to see what falls under it, then tap any service for a closer look. Most projects end up drawing from more than one, and that's fine, we're used to it.</p>
 
       <div class="services-tabs" id="servicesTabs">
         <div class="services-layout">
         <div class="tabs-nav" id="tabsNav" role="tablist">
-          <button class="tab-btn is-active" data-tab="design" role="tab" aria-selected="true" data-summary="From logos to social posts — every visual your brand needs, designed in-house.">Graphic Design</button>
+          <button class="tab-btn is-active" data-tab="design" role="tab" aria-selected="true" data-summary="From logos to social posts, every visual your brand needs, designed in-house.">Graphic Design</button>
           <button class="tab-btn" data-tab="print" role="tab" aria-selected="false" data-summary="Digital and litho printing for documents, brochures, certificates and business stationery.">Printing</button>
           <button class="tab-btn" data-tab="large" role="tab" aria-selected="false" data-summary="Banners, billboards, roll-ups and wall graphics built to get noticed at scale.">Large Format</button>
           <button class="tab-btn" data-tab="brand" role="tab" aria-selected="false" data-summary="Logo, identity, office and vehicle branding that keeps your business consistent everywhere.">Corporate Branding</button>
@@ -155,7 +156,7 @@
           <img data-for-tab="digital" src="assets/photos/digital-social.jpg" alt="Digital and social media graphics on screen" loading="lazy" width="1600" height="1200">
           <span class="tab-media-label" id="tabMediaLabel">Graphic Design</span>
         </div>
-        <p class="tab-media-desc" id="tabMediaDesc">From logos to social posts — every visual your brand needs, designed in-house.</p>
+        <p class="tab-media-desc" id="tabMediaDesc">From logos to social posts, every visual your brand needs, designed in-house.</p>
         <div class="tabs-panels">
           <div class="tab-panel is-active" data-panel="design">
             <div class="service-grid">
@@ -192,7 +193,7 @@
           </div>
           <div class="tab-panel" data-panel="brand">
             <div class="service-grid">
-              <button type="button" class="service-item" data-title="Logo development and corporate identity packages" data-desc="Full identity packages — logo, colours, typography and usage guidelines — built for consistency everywhere your brand appears." data-icon="logo" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span><span class="service-item-label">Logo development and corporate identity packages</span></button>
+              <button type="button" class="service-item" data-title="Logo development and corporate identity packages" data-desc="Full identity packages, logo, colours, typography and usage guidelines, built for consistency everywhere your brand appears." data-icon="logo" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span><span class="service-item-label">Logo development and corporate identity packages</span></button>
               <button type="button" class="service-item" data-title="Office, vehicle, wall and reception branding" data-desc="Branding applied across your office, vehicles, walls and reception area so your presence is consistent wherever clients meet you." data-icon="office" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-office"></use></svg></span><span class="service-item-label">Office, vehicle, wall and reception branding</span></button>
               <button type="button" class="service-item" data-title="Signage" data-desc="Interior and exterior signage manufactured and installed to identify your business clearly." data-icon="signage" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signage"></use></svg></span><span class="service-item-label">Signage</span></button>
               <button type="button" class="service-item" data-title="Branded stationery" data-desc="Letterheads, envelopes, folders and other stationery styled consistently with your brand identity." data-icon="stationery" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stationery"></use></svg></span><span class="service-item-label">Branded stationery</span></button>
@@ -213,12 +214,12 @@
               <button type="button" class="service-item" data-title="Sports events and exhibitions" data-desc="Banners, signage and materials built for the pace and scale of sports events and exhibitions." data-icon="trophy" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-trophy"></use></svg></span><span class="service-item-label">Sports events and exhibitions</span></button>
               <button type="button" class="service-item" data-title="Product launches and political or civic events" data-desc="High impact branding for product launches, political campaigns and civic events." data-icon="rocket" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-rocket"></use></svg></span><span class="service-item-label">Product launches and political or civic events</span></button>
               <button type="button" class="service-item" data-title="Graduation ceremonies, festivals and community events" data-desc="Certificates, banners and signage that mark graduations, festivals and community celebrations." data-icon="graduation" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-graduation"></use></svg></span><span class="service-item-label">Graduation ceremonies, festivals and community events</span></button>
-              <button type="button" class="service-item" data-title="Backdrops, banners, stage branding, directional signs, certificates, programmes and badges" data-desc="A complete event branding package — stage, backdrop, signage, certificates and badges — coordinated as one." data-icon="stage" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stage"></use></svg></span><span class="service-item-label">Backdrops, banners, stage branding, directional signs, certificates, programmes and badges</span></button>
+              <button type="button" class="service-item" data-title="Backdrops, banners, stage branding, directional signs, certificates, programmes and badges" data-desc="A complete event branding package covering stage, backdrop, signage, certificates and badges, coordinated as one." data-icon="stage" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stage"></use></svg></span><span class="service-item-label">Backdrops, banners, stage branding, directional signs, certificates, programmes and badges</span></button>
             </div>
           </div>
           <div class="tab-panel" data-panel="promo">
             <div class="service-grid">
-              <button type="button" class="service-item" data-title="Posters, flyers, banners, stickers and calendars" data-desc="A full range of promotional print — posters, flyers, banners, stickers and calendars — for any campaign." data-icon="sticker" data-cat="Promotional Materials"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sticker"></use></svg></span><span class="service-item-label">Posters, flyers, banners, stickers and calendars</span></button>
+              <button type="button" class="service-item" data-title="Posters, flyers, banners, stickers and calendars" data-desc="A full range of promotional print, from posters and flyers to banners, stickers and calendars, for any campaign." data-icon="sticker" data-cat="Promotional Materials"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sticker"></use></svg></span><span class="service-item-label">Posters, flyers, banners, stickers and calendars</span></button>
               <button type="button" class="service-item" data-title="Promotional cards, corporate stationery and event materials" data-desc="Cards, stationery and event materials produced to support a promotional push or campaign." data-icon="cards" data-cat="Promotional Materials"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-cards"></use></svg></span><span class="service-item-label">Promotional cards, corporate stationery and event materials</span></button>
             </div>
           </div>
@@ -237,13 +238,27 @@
     </div>
   </section>
 
+  <!-- short note for the "I don't see my thing on this list" visitor -->
+  <section class="section" id="services-note">
+    <div class="wrap advantage-wrap">
+      <p class="eyebrow mono">Something Not Listed?</p>
+      <h2 class="section-title">If it can be designed, printed or branded, we can probably help.</h2>
+      <p>The list above covers what we produce most often, but it isn't the full extent of what our studio can do. Tell us what you're picturing, even if it's rough, and we'll let you know honestly whether it's something we can take on, what it would involve, and roughly how long it would take.</p>
+      <div class="hero-actions mt-24">
+        <a href="https://wa.me/256000000001" target="_blank" rel="noopener" class="btn btn-primary">Ask On WhatsApp</a>
+        <a href="contact.html" class="btn btn-outline">Get A Quote</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- footer is identical across the site, edit once and copy everywhere if it changes -->
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <span class="footer-logo-chip"><img src="assets/logo.png?v=2" alt="Omalo Graphics Centre Ltd" class="footer-logo" width="53" height="34"></span>
-      <p>Omalo Graphics Centre Ltd is a modern and forward looking graphics, printing, branding and visual communication company built around quality, technology, creativity and professionalism. With five years of experience, advanced equipment and a dedicated team, we are ready to transform your ideas into professional, high quality and impactful visual communication.</p>
+      <p>Omalo Graphics Centre Ltd is a graphics, printing, branding and visual communication company built around quality, technology, creativity and professionalism. Five years in, with solid equipment and a team that cares about the outcome, we're ready to turn your next idea into something you're proud to put your name on.</p>
     </div>
     <div class="footer-links">
       <div>
@@ -258,10 +273,12 @@
         <a href="contact.html">Contact</a>
         <a href="mailto:info@omalographics.com" target="_blank" rel="noopener">info@omalographics.com</a>
         <a href="tel:+256000000001">+256 000 000 001</a>
+        <!-- WhatsApp goes straight to the first phone line -->
+        <a href="https://wa.me/256000000001" target="_blank" rel="noopener" class="footer-whatsapp"><span class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z"/></svg></span>Chat on WhatsApp</a>
         <p class="footer-text">Koch Goma, Gulu City, Uganda</p>
         <p class="footer-text">Jomo Kenyatta Road, Gulu Main Market</p>
         <p class="footer-subhead">Opening Hours</p>
-        <p class="footer-text">Mon – Fri: <em>add opening hours</em></p>
+        <p class="footer-text">Mon – Fri: 8:00 AM – 6:00 PM</p>
         <p class="footer-text">Saturday: <em>add opening hours</em></p>
         <p class="footer-text">Sunday: Closed</p>
       </div>
@@ -296,6 +313,11 @@
 
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
+<!-- floating WhatsApp button, sits bottom-right on every page, first phone line -->
+<a href="https://wa.me/256000000001" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z"/></svg>
+</a>
+
 <div class="service-modal" id="serviceModal" aria-hidden="true">
   <div class="service-modal-backdrop" data-close-modal></div>
   <div class="service-modal-panel" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
@@ -310,6 +332,6 @@
   </div>
 </div>
 
-<script src="js/script.min.js?v=5"></script>
+<script src="js/script.min.js?v=6"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* =========================================================
-   OMALO GRAPHICS CENTRE LTD — site script
+   OMALO GRAPHICS CENTRE LTD: site script
    Vanilla JS, no dependencies. Progressively enhances the
    markup in index/about/services/approach/market/contact/404.
    ========================================================= */
@@ -83,6 +83,9 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  /* Note: the WhatsApp bubble next to this button is a plain <a href="https://wa.me/...">
+     link in the markup, no JS needed, it just opens WhatsApp with the first phone number. */
 
   /* ===================== ANIMATED STAT COUNTERS ===================== */
   var counters = document.querySelectorAll('[data-count-to]');
@@ -288,7 +291,7 @@
       // Honeypot: real visitors never see or fill this field.
       var honeypot = contactForm.querySelector('#website');
       if (honeypot && honeypot.value) {
-        if (formStatus) formStatus.textContent = 'Thanks — we will be in touch shortly.';
+        if (formStatus) formStatus.textContent = 'Thanks, we will be in touch shortly.';
         contactForm.reset();
         return;
       }
@@ -317,7 +320,7 @@
           return res.json().catch(function () { return {}; });
         })
         .then(function () {
-          if (formStatus) formStatus.textContent = 'Thanks — your message has been sent. We will be in touch shortly.';
+          if (formStatus) formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
           contactForm.reset();
           if (window.turnstile && typeof window.turnstile.reset === 'function') {
             window.turnstile.reset();

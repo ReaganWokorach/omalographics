@@ -1,5 +1,5 @@
 /* =========================================================
-   OMALO GRAPHICS CENTRE LTD — design tokens
+   OMALO GRAPHICS CENTRE LTD: design tokens
    Palette pulled from the logo: forest green, press red, paper white.
    Display face: Anton (poster weight, nods to signage and print).
    Body face: Work Sans. Utility/mono face: IBM Plex Mono (press specs).
@@ -85,6 +85,16 @@ p:last-child{ margin-bottom:0; }
 }
 .section-title.light{ color: var(--white); }
 
+/* closing CTA band on the homepage, split text/buttons on desktop, stacks on mobile */
+.cta-band{ display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.cta-band > div:first-child{ flex:1 1 420px; }
+.cta-band .section-title{ margin-bottom:14px; }
+.cta-band-copy{ max-width:520px; }
+.cta-band .hero-actions{ margin-bottom:0; flex:0 0 auto; }
+@media (max-width: 780px){
+  .cta-band{ flex-direction:column; align-items:flex-start; }
+}
+
 /* ===== signature element: registration / crop marks ===== */
 .press-marks{ position:fixed; inset:0; pointer-events:none; z-index: 5; }
 .mark{ position:absolute; width:26px; height:26px; }
@@ -98,7 +108,7 @@ p:last-child{ margin-bottom:0; }
 @media (max-width: 720px){ .press-marks{ display:none; } }
 
 /* ===================== HEADER ===================== */
-/* True position:fixed instead of sticky — sticky depends on ancestor
+/* True position:fixed instead of sticky, since sticky depends on ancestor
    overflow/transform state and can silently stop working (e.g. Safari
    breaks it if any ancestor gains overflow != visible). Fixed always
    stays pinned to the viewport. body gets padding-top below to make
@@ -161,7 +171,7 @@ p:last-child{ margin-bottom:0; }
 }
 
 /* Scroll lock for open mobile nav / modal / lightbox. Deliberately uses
-   position:fixed instead of overflow:hidden — overflow on body (an
+   position:fixed instead of overflow:hidden, since overflow on body (an
    ancestor of the sticky header) is what breaks position:sticky in
    Safari/WebKit, sometimes permanently until a full reload. position:fixed
    locks scroll without touching overflow, so the header stays sticky. The
@@ -242,6 +252,9 @@ body.nav-open{
 .btn-outline{ border-color: var(--green); color: var(--green-deep); }
 .btn-outline:hover{ background: var(--green); color: var(--white); transform: translateY(-2px); }
 .btn-wide{ width:100%; }
+/* same outline button but readable on the dark green sections */
+.btn-outline-light{ border-color: rgba(255,255,255,.5); color:#fff; }
+.btn-outline-light:hover{ background: rgba(255,255,255,.12); color:#fff; border-color:#fff; }
 
 /* ===================== OVERVIEW ===================== */
 .overview-grid{ display:grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items:start; }
@@ -506,6 +519,20 @@ body.nav-open{
   .footer-links{ grid-template-columns: 1fr; }
 }
 
+/* WhatsApp link tucked under the phone numbers in the footer, green to match the brand */
+.footer-whatsapp{
+  display:inline-flex; align-items:center; gap:8px; margin: 4px 0 8px;
+}
+.footer-whatsapp .social-icon{
+  width:22px; height:22px; border-radius:50%; flex:none; background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+.footer-whatsapp .social-icon svg{ width:13px; height:13px; }
+.footer-whatsapp:hover{ color:#fff; }
+
+/* small grey aside next to the WhatsApp number on the contact page */
+.contact-hint{ color:#8fa896; font-size:.82rem; }
+
 /* ===================== BACK TO TOP ===================== */
 .to-top{
   position: fixed; right: 22px; bottom: 22px; width:46px; height:46px; border-radius:50%;
@@ -517,6 +544,20 @@ body.nav-open{
 .to-top.is-visible{ opacity:1; pointer-events:auto; }
 .to-top:hover{ transform: translateY(-3px); }
 
+/* ===================== WHATSAPP FLOAT ===================== */
+/* Always-on chat bubble, bottom-right on every page, sits just above the back-to-top arrow. Uses WhatsApp's own brand green so people recognise it instantly. */
+.whatsapp-float{
+  position: fixed; right: 22px; bottom: 82px; width:52px; height:52px; border-radius:50%;
+  background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 26px rgba(0,0,0,.25); z-index: 46; transition: transform .2s var(--ease);
+}
+.whatsapp-float:hover{ transform: translateY(-3px) scale(1.04); color:#fff; }
+.whatsapp-float svg{ width:28px; height:28px; }
+@media (max-width: 560px){
+  .whatsapp-float{ right:16px; bottom:74px; width:48px; height:48px; }
+  .whatsapp-float svg{ width:25px; height:25px; }
+}
+
 /* ===================== REVEAL ANIMATION ===================== */
 .reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .reveal.is-visible{ opacity:1; transform:none; }
@@ -525,6 +566,7 @@ body.nav-open{
 .ph-tech{ height:200px; margin-bottom:20px; }
 .mb-64{ margin-bottom:64px; }
 .mt-56{ margin-top:56px; }
+.mt-24{ margin-top:24px; }
 
 /* ===================== ICONS ===================== */
 .icon{ width:26px; height:26px; display:block; stroke: var(--green); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
