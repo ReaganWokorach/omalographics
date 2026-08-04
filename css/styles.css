@@ -74,6 +74,9 @@ p:last-child{ margin-bottom:0; }
 .eyebrow.light{ color: #b9e6c8; }
 
 .section{ padding: 84px 0; position:relative; }
+/* first section on every page sits right under the fixed header, keep that gap
+   the same everywhere and match the homepage hero's smaller top spacing */
+main > section:first-child{ padding-top: 64px; }
 .section-tint{ background: var(--paper-dim); }
 .section-dark{ background: var(--ink); color: var(--white); }
 .section-dark p{ color: #cfd3c9; }
