@@ -152,85 +152,33 @@
     }
   }
 
-  /* ===================== SERVICES TABS (services.html) ===================== */
-  var tabsNav = document.getElementById('tabsNav');
+  /* ===================== SERVICES QUICK NAV (services.html) ===================== */
+  /* Every category and every service is already printed on the page, nothing is
+     hidden behind a click. These pills are just a shortcut to jump down to a
+     category, and they highlight themselves as you scroll past each section. */
+  var quicknav = document.getElementById('servicesQuicknav');
 
-  if (tabsNav) {
-    var tabButtons = tabsNav.querySelectorAll('.tab-btn');
-    var panels = document.querySelectorAll('.tab-panel');
-    var tabMediaImgs = document.querySelectorAll('.tab-media img[data-for-tab]');
-    var tabMediaLabel = document.querySelector('.tab-media-label');
-    var tabMediaDesc = document.getElementById('tabMediaDesc');
+  if (quicknav) {
+    var quicknavLinks = quicknav.querySelectorAll('.quicknav-btn');
+    var categorySections = document.querySelectorAll('.service-category');
 
-    var activateTab = function (key) {
-      Array.prototype.forEach.call(tabButtons, function (btn) {
-        var active = btn.getAttribute('data-tab') === key;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-selected', active ? 'true' : 'false');
-        if (active && tabMediaLabel) tabMediaLabel.textContent = btn.textContent;
-        if (active && tabMediaDesc) tabMediaDesc.textContent = btn.getAttribute('data-summary') || '';
-      });
-      Array.prototype.forEach.call(panels, function (panel) {
-        panel.classList.toggle('is-active', panel.getAttribute('data-panel') === key);
-      });
-      Array.prototype.forEach.call(tabMediaImgs, function (img) {
-        img.classList.toggle('is-active', img.getAttribute('data-for-tab') === key);
+    var setActiveQuicknav = function (id) {
+      Array.prototype.forEach.call(quicknavLinks, function (link) {
+        link.classList.toggle('is-active', link.getAttribute('data-quicknav') === id);
       });
     };
 
-    Array.prototype.forEach.call(tabButtons, function (btn) {
-      btn.addEventListener('click', function () {
-        activateTab(btn.getAttribute('data-tab'));
+    if ('IntersectionObserver' in window && categorySections.length) {
+      var spyObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActiveQuicknav(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      Array.prototype.forEach.call(categorySections, function (section) {
+        spyObserver.observe(section);
       });
-    });
-  }
-
-  /* ===================== SERVICE DETAIL MODAL (services.html) ===================== */
-  var serviceModal = document.getElementById('serviceModal');
-
-  if (serviceModal) {
-    var modalIcon = document.getElementById('serviceModalIcon');
-    var modalCat = document.getElementById('serviceModalCat');
-    var modalTitle = document.getElementById('serviceModalTitle');
-    var modalDesc = document.getElementById('serviceModalDesc');
-    var lastFocused = null;
-
-    var openServiceModal = function (btn) {
-      var icon = btn.getAttribute('data-icon');
-      if (modalIcon && icon) modalIcon.setAttribute('href', '#icon-' + icon);
-      if (modalCat) modalCat.textContent = btn.getAttribute('data-cat') || '';
-      if (modalTitle) modalTitle.textContent = btn.getAttribute('data-title') || '';
-      if (modalDesc) modalDesc.textContent = btn.getAttribute('data-desc') || '';
-
-      lastFocused = document.activeElement;
-      serviceModal.classList.add('is-open');
-      serviceModal.setAttribute('aria-hidden', 'false');
-      lockScroll();
-
-      var closeBtn = serviceModal.querySelector('.service-modal-close');
-      if (closeBtn) closeBtn.focus();
-    };
-
-    var closeServiceModal = function () {
-      serviceModal.classList.remove('is-open');
-      serviceModal.setAttribute('aria-hidden', 'true');
-      unlockScroll();
-      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
-    };
-
-    Array.prototype.forEach.call(document.querySelectorAll('.service-item'), function (btn) {
-      btn.addEventListener('click', function () {
-        openServiceModal(btn);
-      });
-    });
-
-    Array.prototype.forEach.call(serviceModal.querySelectorAll('[data-close-modal]'), function (el) {
-      el.addEventListener('click', closeServiceModal);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && serviceModal.classList.contains('is-open')) closeServiceModal();
-    });
+    }
   }
 
   /* ===================== GALLERY LIGHTBOX (index.html) ===================== */

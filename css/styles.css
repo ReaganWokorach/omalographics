@@ -305,72 +305,60 @@ body.nav-open{
 .tt-card h3{ font-size:1.5rem; color: var(--green-deep); margin: 6px 0 16px; font-family: var(--font-body); font-weight:800; }
 @media (max-width: 880px){ .tt-grid{ grid-template-columns: 1fr; gap:44px; } }
 
-/* ===================== SERVICES TABS ===================== */
-.services-intro{ max-width: 640px; margin-bottom: 34px; }
-.tabs-nav{ display:flex; flex-direction:column; gap:8px; }
-.tab-btn{
-  font-family: var(--font-body); font-weight:600; font-size:.95rem;
-  padding: 15px 20px; border-radius: 14px; border: 1px solid rgba(23,26,21,.15);
-  background: var(--white); color: var(--ink-soft); cursor:pointer;
-  text-align:left; width:100%;
-  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+/* ===================== SERVICES: QUICK NAV + ALWAYS-OPEN CATEGORY LIST ===================== */
+/* Nothing on this page hides behind a click. The pills below are just a shortcut
+   down the page; every category and every service is printed out in full underneath. */
+.services-intro{ max-width: 640px; margin-bottom: 30px; }
+
+.services-quicknav{
+  display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 8px;
+  position: sticky; top: 84px; z-index: 20; background: var(--paper);
+  padding: 12px 0; border-bottom: 1px solid rgba(23,26,21,.08);
 }
-.tab-btn.is-active, .tab-btn:hover{ background: var(--green); color: var(--white); border-color: var(--green); }
-.tab-btn.is-active{ transform: translateX(4px); }
-.tabs-panels{ background: var(--white); border-radius: 20px; padding: 40px; border: 1px solid rgba(23,26,21,.08); }
-.tab-panel{ display:none; }
-.tab-panel.is-active{ display:block; animation: fadeIn .35s var(--ease); }
-@keyframes fadeIn{ from{ opacity:0; transform: translateY(6px); } to{ opacity:1; transform:none; } }
-.service-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.service-item{
-  display:flex; align-items:center; gap:14px; text-align:left;
-  padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(23,26,21,.1);
-  background: var(--paper); cursor:pointer; font-family: var(--font-body); color: var(--ink);
-  transition: background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+.quicknav-btn{
+  font-family: var(--font-body); font-weight:700; font-size:.85rem; white-space:nowrap;
+  padding: 10px 18px; border-radius: 999px; border: 2px solid var(--green);
+  color: var(--green-deep); background: var(--white);
+  transition: background .2s var(--ease), color .2s var(--ease);
 }
-.service-item:hover, .service-item:focus-visible{
-  background: var(--green-soft); border-color: var(--green); transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(15,61,36,.1); outline: none;
-}
-.service-item-icon{
-  flex: none; width:40px; height:40px; border-radius:10px; background: var(--green-soft);
-  display:flex; align-items:center; justify-content:center; transition: background .2s var(--ease);
-}
-.service-item-icon .icon{ width:20px; height:20px; stroke: var(--green-deep); }
-.service-item:hover .service-item-icon{ background: var(--white); }
-.service-item-label{ font-size:.96rem; font-weight:600; line-height:1.3; }
+.quicknav-btn:hover, .quicknav-btn.is-active{ background: var(--green); color: var(--white); }
 @media (max-width: 700px){
-  .service-grid{ grid-template-columns: 1fr; }
-  .tabs-panels{ padding: 28px 22px; }
+  .services-quicknav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; top: 70px; }
 }
 
-/* ===================== SERVICE DETAIL MODAL ===================== */
-.service-modal{
-  position: fixed; inset:0; z-index: 110; display:flex; align-items:center; justify-content:center;
-  opacity:0; pointer-events:none; transition: opacity .25s var(--ease); padding: 20px;
+.service-categories{ display:flex; flex-direction:column; gap: 72px; margin-top: 44px; }
+.service-category{ scroll-margin-top: 150px; }
+.service-category-media{
+  border-radius: 20px; overflow:hidden; height: 320px; margin-bottom: 28px;
+  box-shadow: 0 20px 40px rgba(15,61,36,.16);
 }
-.service-modal.is-open{ opacity:1; pointer-events:auto; }
-.service-modal-backdrop{ position:absolute; inset:0; background: rgba(11,14,10,.6); }
-.service-modal-panel{
-  position:relative; background: var(--white); border-radius: 22px; max-width: 460px; width:100%;
-  padding: 44px 36px 36px; text-align:center; box-shadow: 0 30px 70px rgba(0,0,0,.35);
-  transform: translateY(14px) scale(.97); transition: transform .25s var(--ease);
+.service-category-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.service-category-body h3{
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-family: var(--font-body); font-weight:800;
+  color: var(--green-deep); max-width: 760px; margin: 0 0 30px; line-height:1.3;
 }
-.service-modal.is-open .service-modal-panel{ transform:none; }
-.service-modal-icon{
-  display:inline-flex; align-items:center; justify-content:center; width:72px; height:72px;
-  border-radius:20px; background: var(--green-soft); margin-bottom: 18px;
+
+/* the vertical, always-visible service list: one row per service, icon plus full description */
+.service-list{ display:flex; flex-direction:column; border-top: 1px solid rgba(23,26,21,.1); }
+.service-row{
+  display:flex; align-items:flex-start; gap: 18px; padding: 20px 10px;
+  border-bottom: 1px solid rgba(23,26,21,.1); border-radius: 12px;
+  transition: background .2s var(--ease);
 }
-.service-modal-icon .icon{ width:34px; height:34px; stroke: var(--green-deep); }
-.service-modal-cat{ font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color: var(--red); margin-bottom:8px; }
-.service-modal-panel h3{ font-size:1.5rem; font-family: var(--font-body); font-weight:800; color: var(--green-deep); margin-bottom:12px; line-height:1.2; }
-.service-modal-panel p{ margin-bottom: 22px; }
-.service-modal-close{
-  position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%;
-  background: var(--paper-dim); border:none; color: var(--ink); font-size:1.1rem; cursor:pointer;
+.service-row:hover{ background: var(--green-soft); }
+.service-row-icon{
+  flex:none; width:44px; height:44px; border-radius:12px; background: var(--green-soft);
   display:flex; align-items:center; justify-content:center; transition: background .2s var(--ease);
 }
-.service-modal-close:hover{ background: var(--green-soft); }
+.service-row:hover .service-row-icon{ background: var(--green); }
+.service-row-icon .icon{ width:22px; height:22px; stroke: var(--green-deep); transition: stroke .2s var(--ease); }
+.service-row:hover .service-row-icon .icon{ stroke: var(--white); }
+.service-row-text h4{ font-family: var(--font-body); font-weight:800; color: var(--ink); margin: 2px 0 6px; font-size: 1.02rem; line-height:1.35; }
+.service-row-text p{ margin:0; color: var(--ink-soft); font-size:.94rem; line-height:1.55; max-width: 640px; }
+@media (max-width: 700px){
+  .service-category-media{ height: 220px; }
+  .service-row{ padding: 16px 6px; }
+}
 
 /* ===================== PROCESS LIST ===================== */
 .process-list{ display:flex; flex-direction:column; gap:0; max-width: 820px; }
@@ -519,17 +507,6 @@ body.nav-open{
   .footer-links{ grid-template-columns: 1fr; }
 }
 
-/* WhatsApp link tucked under the phone numbers in the footer, green to match the brand */
-.footer-whatsapp{
-  display:inline-flex; align-items:center; gap:8px; margin: 4px 0 8px;
-}
-.footer-whatsapp .social-icon{
-  width:22px; height:22px; border-radius:50%; flex:none; background:#25D366; color:#fff;
-  display:flex; align-items:center; justify-content:center;
-}
-.footer-whatsapp .social-icon svg{ width:13px; height:13px; }
-.footer-whatsapp:hover{ color:#fff; }
-
 /* small grey aside next to the WhatsApp number on the contact page */
 .contact-hint{ color:#8fa896; font-size:.82rem; }
 
@@ -638,38 +615,6 @@ body.nav-open{
   transition: background .2s var(--ease);
 }
 .lightbox-close:hover{ background: rgba(255,255,255,.2); }
-
-/* ===================== SERVICES TAB MEDIA ===================== */
-/* Left column: vertical list of services. Right column (wider): image + description stacked. */
-.services-layout{ display:grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 40px; align-items:start; }
-.tabs-nav{ position:sticky; top: 96px; }
-.service-showcase{ display:flex; flex-direction:column; gap: 28px; }
-.tab-media{
-  position:relative; border-radius: 20px; overflow:hidden; height: 460px;
-  box-shadow: 0 20px 40px rgba(15,61,36,.16);
-}
-.tab-media img{
-  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; display:block;
-  opacity:0; transition: opacity .35s var(--ease);
-}
-.tab-media img.is-active{ opacity:1; }
-.tab-media-label{
-  position:absolute; left:0; right:0; bottom:0; padding: 18px 20px;
-  background: linear-gradient(0deg, rgba(15,61,36,.88), transparent);
-  color:#fff; font-family: var(--font-body); font-weight:800; font-size:1rem;
-}
-.tab-media-desc{
-  margin: -6px 4px 0; color: var(--ink-soft); font-size: 1rem; line-height:1.55;
-}
-@media (max-width: 980px){
-  .services-layout{ grid-template-columns: 1fr; gap: 26px; }
-  .tabs-nav{ position:static; flex-direction:row; flex-wrap:wrap; }
-  .tabs-nav .tab-btn{ width:auto; }
-  .tab-media{ height: 300px; }
-}
-@media (max-width: 560px){
-  .tab-media{ height: 220px; }
-}
 
 /* ===================== ANIMATED STAT NUMBERS ===================== */
 .stat-number{ font-variant-numeric: tabular-nums; }

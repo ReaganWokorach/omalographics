@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.min.css?v=6">
+<link rel="stylesheet" href="css/styles.min.css?v=7">
 </head>
 <body>
 
@@ -129,111 +129,405 @@
     <div class="wrap">
       <p class="eyebrow mono">Core Services</p>
       <h2 class="section-title">Everything from a business card to a full outdoor campaign.</h2>
-      <p class="services-intro">Pick a category to see what falls under it, then tap any service for a closer look. Most projects end up drawing from more than one, and that's fine, we're used to it.</p>
+      <p class="services-intro">Every service is listed below with what it includes, nothing is hidden behind a click. Use the pills to jump straight to a category if you already know what you need.</p>
 
-      <div class="services-tabs" id="servicesTabs">
-        <div class="services-layout">
-        <div class="tabs-nav" id="tabsNav" role="tablist">
-          <button class="tab-btn is-active" data-tab="design" role="tab" aria-selected="true" data-summary="From logos to social posts, every visual your brand needs, designed in-house.">Graphic Design</button>
-          <button class="tab-btn" data-tab="print" role="tab" aria-selected="false" data-summary="Digital and litho printing for documents, brochures, certificates and business stationery.">Printing</button>
-          <button class="tab-btn" data-tab="large" role="tab" aria-selected="false" data-summary="Banners, billboards, roll-ups and wall graphics built to get noticed at scale.">Large Format</button>
-          <button class="tab-btn" data-tab="brand" role="tab" aria-selected="false" data-summary="Logo, identity, office and vehicle branding that keeps your business consistent everywhere.">Corporate Branding</button>
-          <button class="tab-btn" data-tab="signage" role="tab" aria-selected="false" data-summary="Directional, safety, promotional and institutional signage for indoor or outdoor use.">Signage and Displays</button>
-          <button class="tab-btn" data-tab="event" role="tab" aria-selected="false" data-summary="Backdrops, stage branding and delegate materials for conferences, weddings and civic events.">Event Branding</button>
-          <button class="tab-btn" data-tab="promo" role="tab" aria-selected="false" data-summary="Posters, flyers, stickers, calendars and giveaways to power any campaign.">Promotional Materials</button>
-          <button class="tab-btn" data-tab="digital" role="tab" aria-selected="false" data-summary="Platform-ready social artwork, digital ads and online invitations.">Digital and Social</button>
-        </div>
+      <!-- quick-jump shortcuts only, all the content further down is already fully visible -->
+      <nav class="services-quicknav" id="servicesQuicknav" aria-label="Jump to a service category">
+        <a href="#design" class="quicknav-btn is-active" data-quicknav="design">Graphic Design</a>
+        <a href="#print" class="quicknav-btn" data-quicknav="print">Printing</a>
+        <a href="#large" class="quicknav-btn" data-quicknav="large">Large Format</a>
+        <a href="#brand" class="quicknav-btn" data-quicknav="brand">Corporate Branding</a>
+        <a href="#signage" class="quicknav-btn" data-quicknav="signage">Signage and Displays</a>
+        <a href="#event" class="quicknav-btn" data-quicknav="event">Event Branding</a>
+        <a href="#promo" class="quicknav-btn" data-quicknav="promo">Promotional Materials</a>
+        <a href="#digital" class="quicknav-btn" data-quicknav="digital">Digital and Social</a>
+      </nav>
+    </div>
 
-        <div class="service-showcase">
-        <div class="tab-media">
-          <img class="is-active" data-for-tab="design" src="assets/photos/graphic-design.jpg" alt="Graphic design work in progress" loading="eager" fetchpriority="high" width="1600" height="1067">
-          <img data-for-tab="print" src="assets/photos/print-press.jpg" alt="Digital printing press" loading="lazy" width="1600" height="1068">
-          <img data-for-tab="large" src="assets/photos/large-format.jpg" alt="Large format printer with artwork" loading="lazy" width="1067" height="1600">
-          <img data-for-tab="brand" src="assets/photos/handshake.jpg" alt="Handshake on a corporate branding project" loading="lazy" width="1600" height="1068">
-          <img data-for-tab="signage" src="assets/photos/signage-production.jpg" alt="Signage production equipment" loading="lazy" width="1067" height="1600">
-          <img data-for-tab="event" src="assets/photos/community-event.jpg" alt="Community event and vendor branding" loading="lazy" width="1600" height="1067">
-          <img data-for-tab="promo" src="assets/photos/promo-laptop.jpg" alt="Promotional material design on a laptop" loading="lazy" width="1067" height="1600">
-          <img data-for-tab="digital" src="assets/photos/digital-social.jpg" alt="Digital and social media graphics on screen" loading="lazy" width="1600" height="1200">
-          <span class="tab-media-label" id="tabMediaLabel">Graphic Design</span>
+    <div class="wrap">
+      <div class="service-categories">
+      <article class="service-category" id="design">
+        <div class="service-category-media">
+          <img src="assets/photos/graphic-design.jpg" alt="Graphic design work in progress" loading="eager" fetchpriority="high" width="1600" height="1067">
         </div>
-        <p class="tab-media-desc" id="tabMediaDesc">From logos to social posts, every visual your brand needs, designed in-house.</p>
-        <div class="tabs-panels">
-          <div class="tab-panel is-active" data-panel="design">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Logo design and corporate identity" data-desc="A distinct mark and identity system that ties your logo, colours and typography together so your brand is instantly recognisable." data-icon="logo" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span><span class="service-item-label">Logo design and corporate identity</span></button>
-              <button type="button" class="service-item" data-title="Business cards and letterheads" data-desc="Professionally designed cards and letterheads that put your brand&#x27;s best foot forward in every meeting and document." data-icon="card" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-card"></use></svg></span><span class="service-item-label">Business cards and letterheads</span></button>
-              <button type="button" class="service-item" data-title="Company profiles, brochures and flyers" data-desc="Clear, well-structured profiles and brochures that tell your company&#x27;s story and make a strong first impression." data-icon="document" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span><span class="service-item-label">Company profiles, brochures and flyers</span></button>
-              <button type="button" class="service-item" data-title="Posters, certificates and invitations" data-desc="Eye-catching posters, certificates and invitations designed for the occasion, from award ceremonies to grand openings." data-icon="poster" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-poster"></use></svg></span><span class="service-item-label">Posters, certificates and invitations</span></button>
-              <button type="button" class="service-item" data-title="Calendars, booklets, reports and magazines" data-desc="Multi-page publications laid out for easy reading, from annual reports to branded desk calendars." data-icon="calendar" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg></span><span class="service-item-label">Calendars, booklets, reports and magazines</span></button>
-              <button type="button" class="service-item" data-title="Newsletters and presentation materials" data-desc="Newsletters and slide decks designed to keep your audience informed and your presentations looking sharp." data-icon="presentation" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-presentation"></use></svg></span><span class="service-item-label">Newsletters and presentation materials</span></button>
-              <button type="button" class="service-item" data-title="Social media graphics and digital advertisements" data-desc="Scroll-stopping graphics sized and styled for every platform, from Facebook covers to Instagram ads." data-icon="social" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-social"></use></svg></span><span class="service-item-label">Social media graphics and digital advertisements</span></button>
-              <button type="button" class="service-item" data-title="Custom artwork" data-desc="Bespoke illustration and artwork created from scratch to match a brief no template can cover." data-icon="artwork" data-cat="Graphic Design"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-artwork"></use></svg></span><span class="service-item-label">Custom artwork</span></button>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Graphic Design</p>
+          <h3>From logos to social posts, every visual your brand needs, designed in-house.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Logo design and corporate identity</h4>
+                <p>A distinct mark and identity system that ties your logo, colours and typography together so your brand is instantly recognisable.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="print">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Digital and colour printing" data-desc="Fast, high quality colour printing for short runs and one-off jobs, ready the same day." data-icon="printer" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-printer"></use></svg></span><span class="service-item-label">Digital and colour printing</span></button>
-              <button type="button" class="service-item" data-title="Black and white and high volume printing" data-desc="Cost effective black and white printing built for large volumes without compromising clarity." data-icon="printer-stack" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-printer-stack"></use></svg></span><span class="service-item-label">Black and white and high volume printing</span></button>
-              <button type="button" class="service-item" data-title="Documents, brochures, flyers and posters" data-desc="Everyday business documents through to full colour brochures, flyers and posters, printed to spec." data-icon="document" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span><span class="service-item-label">Documents, brochures, flyers and posters</span></button>
-              <button type="button" class="service-item" data-title="Booklets, reports and certificates" data-desc="Bound booklets, reports and certificates finished to a professional standard for presentation or archiving." data-icon="report" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-report"></use></svg></span><span class="service-item-label">Booklets, reports and certificates</span></button>
-              <button type="button" class="service-item" data-title="Invitations, calendars and business cards" data-desc="Printed invitations, calendars and business cards on quality stock that feels as good as it looks." data-icon="invite" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-invite"></use></svg></span><span class="service-item-label">Invitations, calendars and business cards</span></button>
-              <button type="button" class="service-item" data-title="Receipts, invoices and customised printing" data-desc="Sequentially numbered receipts, invoices and other custom business stationery printed to your specification." data-icon="receipt" data-cat="Printing"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-receipt"></use></svg></span><span class="service-item-label">Receipts, invoices and customised printing</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-card"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Business cards and letterheads</h4>
+                <p>Professionally designed cards and letterheads that put your brand's best foot forward in every meeting and document.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="large">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Banners and posters" data-desc="Durable vinyl banners and posters built to grab attention indoors or out." data-icon="banner" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-banner"></use></svg></span><span class="service-item-label">Banners and posters</span></button>
-              <button type="button" class="service-item" data-title="Billboards and backdrops" data-desc="Large scale billboards and event backdrops that put your brand impossible to miss." data-icon="billboard" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-billboard"></use></svg></span><span class="service-item-label">Billboards and backdrops</span></button>
-              <button type="button" class="service-item" data-title="Pull up and roll up banners" data-desc="Portable roll-up banner stands, ready in minutes for exhibitions, launches or storefronts." data-icon="rollup" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-rollup"></use></svg></span><span class="service-item-label">Pull up and roll up banners</span></button>
-              <button type="button" class="service-item" data-title="Exhibition graphics" data-desc="Booth panels and exhibition graphics designed to make your stand stand out at trade shows." data-icon="exhibition" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-exhibition"></use></svg></span><span class="service-item-label">Exhibition graphics</span></button>
-              <button type="button" class="service-item" data-title="Promotional displays" data-desc="Point-of-sale and promotional displays that put your message right where customers make decisions." data-icon="display" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-display"></use></svg></span><span class="service-item-label">Promotional displays</span></button>
-              <button type="button" class="service-item" data-title="Event backgrounds and outdoor advertising materials" data-desc="Photo backdrops and outdoor advertising materials built to withstand the elements and the crowd." data-icon="outdoor" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-outdoor"></use></svg></span><span class="service-item-label">Event backgrounds and outdoor advertising materials</span></button>
-              <button type="button" class="service-item" data-title="Wall graphics" data-desc="Custom wall graphics and murals that turn office or retail walls into branded space." data-icon="wall" data-cat="Large Format"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-wall"></use></svg></span><span class="service-item-label">Wall graphics</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Company profiles, brochures and flyers</h4>
+                <p>Clear, well-structured profiles and brochures that tell your company's story and make a strong first impression.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="brand">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Logo development and corporate identity packages" data-desc="Full identity packages, logo, colours, typography and usage guidelines, built for consistency everywhere your brand appears." data-icon="logo" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span><span class="service-item-label">Logo development and corporate identity packages</span></button>
-              <button type="button" class="service-item" data-title="Office, vehicle, wall and reception branding" data-desc="Branding applied across your office, vehicles, walls and reception area so your presence is consistent wherever clients meet you." data-icon="office" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-office"></use></svg></span><span class="service-item-label">Office, vehicle, wall and reception branding</span></button>
-              <button type="button" class="service-item" data-title="Signage" data-desc="Interior and exterior signage manufactured and installed to identify your business clearly." data-icon="signage" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signage"></use></svg></span><span class="service-item-label">Signage</span></button>
-              <button type="button" class="service-item" data-title="Branded stationery" data-desc="Letterheads, envelopes, folders and other stationery styled consistently with your brand identity." data-icon="stationery" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stationery"></use></svg></span><span class="service-item-label">Branded stationery</span></button>
-              <button type="button" class="service-item" data-title="Staff identification materials" data-desc="ID cards, lanyards and staff badges produced for security, professionalism and team identity." data-icon="idcard" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-idcard"></use></svg></span><span class="service-item-label">Staff identification materials</span></button>
-              <button type="button" class="service-item" data-title="Corporate promotional materials" data-desc="Branded giveaways and promotional items that keep your company top of mind long after an event." data-icon="gift" data-cat="Corporate Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-gift"></use></svg></span><span class="service-item-label">Corporate promotional materials</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-poster"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Posters, certificates and invitations</h4>
+                <p>Eye-catching posters, certificates and invitations designed for the occasion, from award ceremonies to grand openings.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="signage">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Business, directional, office and safety signs" data-desc="Directional, office and safety signage that keeps staff, clients and visitors informed and safe." data-icon="signpost" data-cat="Signage and Displays"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signpost"></use></svg></span><span class="service-item-label">Business, directional, office and safety signs</span></button>
-              <button type="button" class="service-item" data-title="Promotional, event, institutional and outdoor or indoor signs" data-desc="Signage for promotions, events and institutions, built for indoor or outdoor use." data-icon="signage" data-cat="Signage and Displays"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signage"></use></svg></span><span class="service-item-label">Promotional, event, institutional and outdoor or indoor signs</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-calendar"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Calendars, booklets, reports and magazines</h4>
+                <p>Multi-page publications laid out for easy reading, from annual reports to branded desk calendars.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="event">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Conferences, workshops and seminars" data-desc="Branding materials for conferences, workshops and seminars, from backdrops to delegate badges." data-icon="conference" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-conference"></use></svg></span><span class="service-item-label">Conferences, workshops and seminars</span></button>
-              <button type="button" class="service-item" data-title="Weddings and corporate events" data-desc="Elegant branding and print materials for weddings and corporate functions, tailored to the theme." data-icon="wedding" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-wedding"></use></svg></span><span class="service-item-label">Weddings and corporate events</span></button>
-              <button type="button" class="service-item" data-title="Sports events and exhibitions" data-desc="Banners, signage and materials built for the pace and scale of sports events and exhibitions." data-icon="trophy" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-trophy"></use></svg></span><span class="service-item-label">Sports events and exhibitions</span></button>
-              <button type="button" class="service-item" data-title="Product launches and political or civic events" data-desc="High impact branding for product launches, political campaigns and civic events." data-icon="rocket" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-rocket"></use></svg></span><span class="service-item-label">Product launches and political or civic events</span></button>
-              <button type="button" class="service-item" data-title="Graduation ceremonies, festivals and community events" data-desc="Certificates, banners and signage that mark graduations, festivals and community celebrations." data-icon="graduation" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-graduation"></use></svg></span><span class="service-item-label">Graduation ceremonies, festivals and community events</span></button>
-              <button type="button" class="service-item" data-title="Backdrops, banners, stage branding, directional signs, certificates, programmes and badges" data-desc="A complete event branding package covering stage, backdrop, signage, certificates and badges, coordinated as one." data-icon="stage" data-cat="Event Branding"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stage"></use></svg></span><span class="service-item-label">Backdrops, banners, stage branding, directional signs, certificates, programmes and badges</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-presentation"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Newsletters and presentation materials</h4>
+                <p>Newsletters and slide decks designed to keep your audience informed and your presentations looking sharp.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="promo">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Posters, flyers, banners, stickers and calendars" data-desc="A full range of promotional print, from posters and flyers to banners, stickers and calendars, for any campaign." data-icon="sticker" data-cat="Promotional Materials"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sticker"></use></svg></span><span class="service-item-label">Posters, flyers, banners, stickers and calendars</span></button>
-              <button type="button" class="service-item" data-title="Promotional cards, corporate stationery and event materials" data-desc="Cards, stationery and event materials produced to support a promotional push or campaign." data-icon="cards" data-cat="Promotional Materials"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-cards"></use></svg></span><span class="service-item-label">Promotional cards, corporate stationery and event materials</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-social"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Social media graphics and digital advertisements</h4>
+                <p>Scroll-stopping graphics sized and styled for every platform, from Facebook covers to Instagram ads.</p>
+              </div>
             </div>
-          </div>
-          <div class="tab-panel" data-panel="digital">
-            <div class="service-grid">
-              <button type="button" class="service-item" data-title="Social media artwork" data-desc="Platform-ready artwork designed to keep your social feeds consistent and on-brand." data-icon="social" data-cat="Digital and Social"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-social"></use></svg></span><span class="service-item-label">Social media artwork</span></button>
-              <button type="button" class="service-item" data-title="Digital posters and advertisements" data-desc="Digital posters and ad creatives designed for screens, from websites to digital billboards." data-icon="ad" data-cat="Digital and Social"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-ad"></use></svg></span><span class="service-item-label">Digital posters and advertisements</span></button>
-              <button type="button" class="service-item" data-title="Digital flyers and promotional graphics" data-desc="Shareable digital flyers and promotional graphics built for WhatsApp, email and social sharing." data-icon="flyer" data-cat="Digital and Social"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-flyer"></use></svg></span><span class="service-item-label">Digital flyers and promotional graphics</span></button>
-              <button type="button" class="service-item" data-title="Branded online content and digital invitations" data-desc="Digital invitations and branded online content designed to extend your identity into digital spaces." data-icon="online" data-cat="Digital and Social"><span class="service-item-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-online"></use></svg></span><span class="service-item-label">Branded online content and digital invitations</span></button>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-artwork"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Custom artwork</h4>
+                <p>Bespoke illustration and artwork created from scratch to match a brief no template can cover.</p>
+              </div>
             </div>
           </div>
         </div>
+      </article>
+
+      <article class="service-category" id="print">
+        <div class="service-category-media">
+          <img src="assets/photos/print-press.jpg" alt="Digital printing press" loading="lazy" width="1600" height="1068">
         </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Printing</p>
+          <h3>Digital and litho printing for documents, brochures, certificates and business stationery.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-printer"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Digital and colour printing</h4>
+                <p>Fast, high quality colour printing for short runs and one-off jobs, ready the same day.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-printer-stack"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Black and white and high volume printing</h4>
+                <p>Cost effective black and white printing built for large volumes without compromising clarity.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-document"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Documents, brochures, flyers and posters</h4>
+                <p>Everyday business documents through to full colour brochures, flyers and posters, printed to spec.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-report"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Booklets, reports and certificates</h4>
+                <p>Bound booklets, reports and certificates finished to a professional standard for presentation or archiving.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-invite"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Invitations, calendars and business cards</h4>
+                <p>Printed invitations, calendars and business cards on quality stock that feels as good as it looks.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-receipt"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Receipts, invoices and customised printing</h4>
+                <p>Sequentially numbered receipts, invoices and other custom business stationery printed to your specification.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </article>
+
+      <article class="service-category" id="large">
+        <div class="service-category-media">
+          <img src="assets/photos/large-format.jpg" alt="Large format printer with artwork" loading="lazy" width="1067" height="1600">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Large Format</p>
+          <h3>Banners, billboards, roll-ups and wall graphics built to get noticed at scale.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-banner"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Banners and posters</h4>
+                <p>Durable vinyl banners and posters built to grab attention indoors or out.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-billboard"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Billboards and backdrops</h4>
+                <p>Large scale billboards and event backdrops that put your brand impossible to miss.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-rollup"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Pull up and roll up banners</h4>
+                <p>Portable roll-up banner stands, ready in minutes for exhibitions, launches or storefronts.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-exhibition"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Exhibition graphics</h4>
+                <p>Booth panels and exhibition graphics designed to make your stand stand out at trade shows.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-display"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Promotional displays</h4>
+                <p>Point-of-sale and promotional displays that put your message right where customers make decisions.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-outdoor"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Event backgrounds and outdoor advertising materials</h4>
+                <p>Photo backdrops and outdoor advertising materials built to withstand the elements and the crowd.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-wall"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Wall graphics</h4>
+                <p>Custom wall graphics and murals that turn office or retail walls into branded space.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-category" id="brand">
+        <div class="service-category-media">
+          <img src="assets/photos/handshake.jpg" alt="Handshake on a corporate branding project" loading="lazy" width="1600" height="1068">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Corporate Branding</p>
+          <h3>Logo, identity, office and vehicle branding that keeps your business consistent everywhere.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Logo development and corporate identity packages</h4>
+                <p>Full identity packages, logo, colours, typography and usage guidelines, built for consistency everywhere your brand appears.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-office"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Office, vehicle, wall and reception branding</h4>
+                <p>Branding applied across your office, vehicles, walls and reception area so your presence is consistent wherever clients meet you.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signage"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Signage</h4>
+                <p>Interior and exterior signage manufactured and installed to identify your business clearly.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stationery"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Branded stationery</h4>
+                <p>Letterheads, envelopes, folders and other stationery styled consistently with your brand identity.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-idcard"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Staff identification materials</h4>
+                <p>ID cards, lanyards and staff badges produced for security, professionalism and team identity.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-gift"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Corporate promotional materials</h4>
+                <p>Branded giveaways and promotional items that keep your company top of mind long after an event.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-category" id="signage">
+        <div class="service-category-media">
+          <img src="assets/photos/signage-production.jpg" alt="Signage production equipment" loading="lazy" width="1067" height="1600">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Signage and Displays</p>
+          <h3>Directional, safety, promotional and institutional signage for indoor or outdoor use.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signpost"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Business, directional, office and safety signs</h4>
+                <p>Directional, office and safety signage that keeps staff, clients and visitors informed and safe.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-signage"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Promotional, event, institutional and outdoor or indoor signs</h4>
+                <p>Signage for promotions, events and institutions, built for indoor or outdoor use.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-category" id="event">
+        <div class="service-category-media">
+          <img src="assets/photos/community-event.jpg" alt="Community event and vendor branding" loading="lazy" width="1600" height="1067">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Event Branding</p>
+          <h3>Backdrops, stage branding and delegate materials for conferences, weddings and civic events.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-conference"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Conferences, workshops and seminars</h4>
+                <p>Branding materials for conferences, workshops and seminars, from backdrops to delegate badges.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-wedding"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Weddings and corporate events</h4>
+                <p>Elegant branding and print materials for weddings and corporate functions, tailored to the theme.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-trophy"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Sports events and exhibitions</h4>
+                <p>Banners, signage and materials built for the pace and scale of sports events and exhibitions.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-rocket"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Product launches and political or civic events</h4>
+                <p>High impact branding for product launches, political campaigns and civic events.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-graduation"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Graduation ceremonies, festivals and community events</h4>
+                <p>Certificates, banners and signage that mark graduations, festivals and community celebrations.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-stage"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Backdrops, banners, stage branding, directional signs, certificates, programmes and badges</h4>
+                <p>A complete event branding package covering stage, backdrop, signage, certificates and badges, coordinated as one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-category" id="promo">
+        <div class="service-category-media">
+          <img src="assets/photos/promo-laptop.jpg" alt="Promotional material design on a laptop" loading="lazy" width="1067" height="1600">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Promotional Materials</p>
+          <h3>Posters, flyers, stickers, calendars and giveaways to power any campaign.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sticker"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Posters, flyers, banners, stickers and calendars</h4>
+                <p>A full range of promotional print, from posters and flyers to banners, stickers and calendars, for any campaign.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-cards"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Promotional cards, corporate stationery and event materials</h4>
+                <p>Cards, stationery and event materials produced to support a promotional push or campaign.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service-category" id="digital">
+        <div class="service-category-media">
+          <img src="assets/photos/digital-social.jpg" alt="Digital and social media graphics on screen" loading="lazy" width="1600" height="1200">
+        </div>
+        <div class="service-category-body">
+          <p class="eyebrow mono">Digital and Social</p>
+          <h3>Platform-ready social artwork, digital ads and online invitations.</h3>
+          <div class="service-list">
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-social"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Social media artwork</h4>
+                <p>Platform-ready artwork designed to keep your social feeds consistent and on-brand.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-ad"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Digital posters and advertisements</h4>
+                <p>Digital posters and ad creatives designed for screens, from websites to digital billboards.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-flyer"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Digital flyers and promotional graphics</h4>
+                <p>Shareable digital flyers and promotional graphics built for WhatsApp, email and social sharing.</p>
+              </div>
+            </div>
+            <div class="service-row">
+              <span class="service-row-icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-online"></use></svg></span>
+              <div class="service-row-text">
+                <h4>Branded online content and digital invitations</h4>
+                <p>Digital invitations and branded online content designed to extend your identity into digital spaces.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
       </div>
     </div>
   </section>
@@ -273,8 +567,8 @@
         <a href="contact.html">Contact</a>
         <a href="mailto:info@omalographics.com" target="_blank" rel="noopener">info@omalographics.com</a>
         <a href="tel:+256000000001">+256 000 000 001</a>
-        <!-- WhatsApp goes straight to the first phone line -->
-        <a href="https://wa.me/256000000001" target="_blank" rel="noopener" class="footer-whatsapp"><span class="social-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z"/></svg></span>Chat on WhatsApp</a>
+        <!-- same first phone number, also opens a WhatsApp chat, no icon needed here -->
+        <a href="https://wa.me/256000000001" target="_blank" rel="noopener">WhatsApp: +256 000 000 001</a>
         <p class="footer-text">Koch Goma, Gulu City, Uganda</p>
         <p class="footer-text">Jomo Kenyatta Road, Gulu Main Market</p>
         <p class="footer-subhead">Opening Hours</p>
@@ -318,20 +612,6 @@
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 3 4.7 4.1.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z"/></svg>
 </a>
 
-<div class="service-modal" id="serviceModal" aria-hidden="true">
-  <div class="service-modal-backdrop" data-close-modal></div>
-  <div class="service-modal-panel" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
-    <button class="service-modal-close" data-close-modal aria-label="Close">✕</button>
-    <span class="service-modal-icon">
-      <svg class="icon" id="serviceModalIcon" viewBox="0 0 24 24"><use href="#icon-logo"></use></svg>
-    </span>
-    <p class="service-modal-cat mono" id="serviceModalCat">Graphic Design</p>
-    <h3 id="serviceModalTitle">Service title</h3>
-    <p id="serviceModalDesc">Service description.</p>
-    <a href="contact.html" class="btn btn-primary">Ask About This</a>
-  </div>
-</div>
-
-<script src="js/script.min.js?v=6"></script>
+<script src="js/script.min.js?v=7"></script>
 </body>
 </html>
