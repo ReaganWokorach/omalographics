@@ -317,7 +317,7 @@ body.nav-open{
 }
 .team-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 30px rgba(15,61,36,.1); }
 .team-card-photo{ height: 340px; margin-bottom: 16px; }
-.team-card-photo img{ object-position: center 12%; }
+.team-card-photo img{ object-position: center top; }
 .team-card h4{ font-size:1.1rem; color: var(--green-deep); font-family: var(--font-body); font-weight:800; margin-bottom:4px; }
 .team-card h4 em{ font-style: normal; color: var(--ink-soft); font-weight:600; }
 .team-role{ font-size:.8rem; letter-spacing:.03em; text-transform:uppercase; }
@@ -578,7 +578,7 @@ body.nav-open{
 /* ===================== PHOTO FRAME ===================== */
 .ph{ border-radius: var(--radius); overflow:hidden; position:relative; background: var(--paper-dim); }
 .ph img{ width:100%; height:100%; object-fit:cover; object-position:center 25%; display:block; transition: transform .5s var(--ease); }
-.ph-person img{ object-position: center 12%; }
+.ph-person img{ object-position: center 55%; }
 .ph:hover img{ transform: scale(1.04); }
 
 /* ===================== MEDIA + COPY SPLIT ===================== */
