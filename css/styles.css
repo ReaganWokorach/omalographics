@@ -308,6 +308,21 @@ body.nav-open{
 .tt-card h3{ font-size:1.5rem; color: var(--green-deep); margin: 6px 0 16px; font-family: var(--font-body); font-weight:800; }
 @media (max-width: 880px){ .tt-grid{ grid-template-columns: 1fr; gap:44px; } }
 
+/* ===================== MEET THE TEAM ===================== */
+.team-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.team-card{
+  background: var(--white); border-radius: var(--radius); padding: 18px 18px 22px;
+  border: 1px solid rgba(23,26,21,.08); text-align:center;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.team-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 30px rgba(15,61,36,.1); }
+.team-card-photo{ height: 300px; margin-bottom: 16px; }
+.team-card h4{ font-size:1.1rem; color: var(--green-deep); font-family: var(--font-body); font-weight:800; margin-bottom:4px; }
+.team-card h4 em{ font-style: normal; color: var(--ink-soft); font-weight:600; }
+.team-role{ font-size:.8rem; letter-spacing:.03em; text-transform:uppercase; }
+.team-role em{ font-style:normal; }
+@media (max-width: 780px){ .team-grid{ grid-template-columns: 1fr; max-width:340px; margin:0 auto; } }
+
 /* ===================== SERVICES: QUICK NAV + ALWAYS-OPEN CATEGORY LIST ===================== */
 /* Nothing on this page hides behind a click. The pills below are just a shortcut
    down the page; every category and every service is printed out in full underneath. */
