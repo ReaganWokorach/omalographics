@@ -316,8 +316,8 @@ body.nav-open{
   transition: transform .2s var(--ease), box-shadow .2s var(--ease);
 }
 .team-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 30px rgba(15,61,36,.1); }
-.team-card-photo{ height: 340px; margin-bottom: 16px; }
-.team-card-photo img{ object-position: center top; }
+.team-card-photo{ height: 380px; margin-bottom: 16px; }
+.ph.team-card-photo img{ object-position: center top; }
 .team-card h4{ font-size:1.1rem; color: var(--green-deep); font-family: var(--font-body); font-weight:800; margin-bottom:4px; }
 .team-card h4 em{ font-style: normal; color: var(--ink-soft); font-weight:600; }
 .team-role{ font-size:.8rem; letter-spacing:.03em; text-transform:uppercase; }
@@ -559,7 +559,7 @@ body.nav-open{
 .reveal.is-visible{ opacity:1; transform:none; }
 
 /* ===================== UTILITIES (kept out of inline style="" for CSP) ===================== */
-.ph-tech{ height:200px; margin-bottom:20px; }
+.ph-tech{ height:260px; margin-bottom:20px; }
 .mb-64{ margin-bottom:64px; }
 .mt-56{ margin-top:56px; }
 .mt-24{ margin-top:24px; }
