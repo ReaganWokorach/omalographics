@@ -76,7 +76,7 @@ p:last-child{ margin-bottom:0; }
 .section{ padding: 84px 0; position:relative; }
 /* first section on every page sits right under the fixed header; every page uses
    this same class so the gap under the header stays identical everywhere */
-.section-first{ padding-top: 40px !important; }
+.section-first{ padding-top: 26px !important; }
 .section-tint{ background: var(--paper-dim); }
 .section-dark{ background: var(--ink); color: var(--white); }
 .section-dark p{ color: #cfd3c9; }
