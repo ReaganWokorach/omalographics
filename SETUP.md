@@ -39,7 +39,7 @@ setup. Follow it top to bottom before going live.
 
 ---
 
-## 3. Turn on Cloudflare Email Service (for the contact form + uptime alerts)
+## 3. Turn on Cloudflare Email Service (for the contact form)
 
 This lets the site email you directly with no third-party API key.
 
@@ -74,40 +74,7 @@ after saving (env var changes need a new deployment to take effect).
 
 ---
 
-## 5. Deploy the uptime monitor (separate Worker)
-
-Cloudflare Pages can't run on a schedule — only Workers can — so the uptime
-checker is a small separate Worker in `/uptime-monitor`. Deploy it once from
-your machine:
-
-```bash
-cd uptime-monitor
-npx wrangler kv namespace create UPTIME_STATE
-```
-
-Copy the `id` it prints into `uptime-monitor/wrangler.toml`, replacing
-`REPLACE_WITH_YOUR_KV_NAMESPACE_ID`. Then edit the `[vars]` block in that
-same file:
-
-```toml
-[vars]
-TARGET_URL = "https://www.omalographics.com/api/health"   # your real domain
-ALERT_EMAIL_TO = "you@yourdomain.com"                      # where alerts go
-ALERT_EMAIL_FROM = "alerts@yourdomain.com"                 # on your onboarded domain
-```
-
-Then deploy:
-
-```bash
-npx wrangler deploy
-```
-
-It will now check the site every 5 minutes and email you only when the
-status **changes** (goes down, or recovers) — not on every single check.
-
----
-
-## 6. Point your domain at the site
+## 5. Point your domain at the site
 
 Dashboard → your Pages project → **Custom domains → Set up a custom domain**,
 add `www.omalographics.com` (and `omalographics.com` with a redirect to
@@ -116,7 +83,7 @@ issues and renews the TLS certificate automatically.
 
 ---
 
-## 7. After you edit `css/styles.css` or `js/script.js`
+## 6. After you edit `css/styles.css` or `js/script.js`
 
 The site ships minified copies (`styles.min.css`, `script.min.js`) that the
 HTML actually loads, for speed. Regenerate them after any edit:
@@ -130,7 +97,7 @@ Commit both the source files and the regenerated `.min` files.
 
 ---
 
-## 8. If you add new external resources later
+## 7. If you add new external resources later
 
 The Content-Security-Policy in `_headers` only allows scripts/styles/images/
 fonts from a specific, tight list of origins (itself, Google Fonts, Unsplash,
@@ -143,13 +110,12 @@ stops working.
 
 ---
 
-## 9. Quick pre-launch checklist
+## 8. Quick pre-launch checklist
 
 - [ ] Turnstile site key swapped in `contact.html` (step 2)
 - [ ] Turnstile secret key set in Pages dashboard (step 4)
 - [ ] Email Service onboarded + destination address verified (step 3)
 - [ ] `CONTACT_EMAIL_TO` / `CONTACT_EMAIL_FROM` set in Pages dashboard (step 4)
-- [ ] Uptime monitor Worker deployed with real KV namespace + your domain (step 5)
-- [ ] Custom domain attached, site loads over `https://` (step 6)
+- [ ] Custom domain attached, site loads over `https://` (step 5)
 - [ ] Submit the contact form yourself once, confirm you receive the email
 - [ ] Replace the social media `href="#"` placeholders in the footer with your real profile links
