@@ -258,8 +258,8 @@
       }
 
       var formData = new FormData(contactForm);
-      var encoded = new URLSearchParams();
-      formData.forEach(function (value, key) { encoded.append(key, value); });
+      var payload = {};
+      formData.forEach(function (value, key) { payload[key] = value; });
 
       if (submitBtn) submitBtn.disabled = true;
       if (formStatus) {
@@ -267,15 +267,14 @@
         formStatus.textContent = 'Sending…';
       }
 
-      // Netlify Forms: submissions post as regular urlencoded form data to
-      // any page (conventionally "/"), matched by the "form-name" field.
-      fetch('/', {
+      fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encoded.toString()
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       })
         .then(function (res) {
           if (!res.ok) throw new Error('Request failed');
+          return res.json().catch(function () { return {}; });
         })
         .then(function () {
           if (formStatus) {
@@ -283,6 +282,9 @@
             formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
           }
           contactForm.reset();
+          if (window.turnstile && typeof window.turnstile.reset === 'function') {
+            window.turnstile.reset();
+          }
         })
         .catch(function () {
           if (formStatus) {
