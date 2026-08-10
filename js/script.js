@@ -239,7 +239,10 @@
       // Honeypot: real visitors never see or fill this field.
       var honeypot = contactForm.querySelector('#website');
       if (honeypot && honeypot.value) {
-        if (formStatus) formStatus.textContent = 'Thanks, we will be in touch shortly.';
+        if (formStatus) {
+          formStatus.classList.remove('is-error');
+          formStatus.textContent = 'Thanks, we will be in touch shortly.';
+        }
         contactForm.reset();
         return;
       }
@@ -247,35 +250,43 @@
       var nameField = contactForm.querySelector('#name');
       var emailField = contactForm.querySelector('#email');
       if ((nameField && !nameField.value.trim()) || (emailField && !emailField.value.trim())) {
-        if (formStatus) formStatus.textContent = 'Please fill in your name and a way to reach you.';
+        if (formStatus) {
+          formStatus.classList.add('is-error');
+          formStatus.textContent = 'Please fill in your name and a way to reach you.';
+        }
         return;
       }
 
       var formData = new FormData(contactForm);
-      var payload = {};
-      formData.forEach(function (value, key) { payload[key] = value; });
+      var encoded = new URLSearchParams();
+      formData.forEach(function (value, key) { encoded.append(key, value); });
 
       if (submitBtn) submitBtn.disabled = true;
-      if (formStatus) formStatus.textContent = 'Sending…';
+      if (formStatus) {
+        formStatus.classList.remove('is-error');
+        formStatus.textContent = 'Sending…';
+      }
 
-      fetch('/api/contact', {
+      // Netlify Forms: submissions post as regular urlencoded form data to
+      // any page (conventionally "/"), matched by the "form-name" field.
+      fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded.toString()
       })
         .then(function (res) {
           if (!res.ok) throw new Error('Request failed');
-          return res.json().catch(function () { return {}; });
         })
         .then(function () {
-          if (formStatus) formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
-          contactForm.reset();
-          if (window.turnstile && typeof window.turnstile.reset === 'function') {
-            window.turnstile.reset();
+          if (formStatus) {
+            formStatus.classList.remove('is-error');
+            formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
           }
+          contactForm.reset();
         })
         .catch(function () {
           if (formStatus) {
+            formStatus.classList.add('is-error');
             formStatus.textContent = 'Something went wrong sending your message. Please try again, or reach us directly by phone.';
           }
         })
