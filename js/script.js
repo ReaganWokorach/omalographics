@@ -282,9 +282,6 @@
             formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
           }
           contactForm.reset();
-          if (window.turnstile && typeof window.turnstile.reset === 'function') {
-            window.turnstile.reset();
-          }
         })
         .catch(function () {
           if (formStatus) {
@@ -296,6 +293,13 @@
           if (submitBtn) submitBtn.disabled = false;
         });
     });
+  }
+
+  // Footer copyright year: keeps "All rights reserved" current without
+  // needing a manual edit every January.
+  var copyrightYear = document.getElementById('copyrightYear');
+  if (copyrightYear) {
+    copyrightYear.textContent = new Date().getFullYear();
   }
 
 })();

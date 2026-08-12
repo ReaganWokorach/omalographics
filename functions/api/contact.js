@@ -1,16 +1,18 @@
 /* =========================================================
    POST /api/contact
    Cloudflare Pages Function backing the contact form on
-   contact.html. Validates the submission, verifies the
-   Turnstile token server-side, then sends a notification
-   email through Cloudflare Email Service using the
-   send_email binding's structured send() API.
+   contact.html. Validates the submission, then sends a
+   notification email through Cloudflare Email Service using
+   the send_email binding's structured send() API.
+
+   Spam defense is the honeypot field only (see the "website"
+   check below, mirrored client-side in js/script.js). There
+   is no CAPTCHA/bot-verification step on this endpoint.
 
    Required environment (see SETUP.md):
      - env.SEND_EMAIL            (send_email binding, wrangler.toml)
      - env.CONTACT_EMAIL_TO      (destination inbox)
      - env.CONTACT_EMAIL_FROM    (must be on your Email Service domain)
-     - env.TURNSTILE_SECRET_KEY  (secret, set via Pages dashboard)
    ========================================================= */
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
@@ -51,37 +53,9 @@ export async function onRequestPost(context) {
   const email = clean(data.email).slice(0, 200);
   const service = clean(data.service).slice(0, 100);
   const message = String(data.message || '').slice(0, 5000).trim();
-  const token = data['cf-turnstile-response'];
 
   if (!name || !email) {
     return json({ error: 'Missing required fields' }, 400);
-  }
-
-  if (!token) {
-    return json({ error: 'Missing verification token' }, 400);
-  }
-
-  // Verify the Turnstile token server-side. This is the step that actually
-  // matters, the widget on the page alone proves nothing on its own.
-  const verifyResp = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      secret: env.TURNSTILE_SECRET_KEY,
-      response: token,
-      remoteip: request.headers.get('CF-Connecting-IP') || ''
-    })
-  });
-
-  let verifyData;
-  try {
-    verifyData = await verifyResp.json();
-  } catch (err) {
-    return json({ error: 'Verification service error' }, 502);
-  }
-
-  if (!verifyData.success) {
-    return json({ error: 'Verification failed' }, 403);
   }
 
   const to = env.CONTACT_EMAIL_TO;

@@ -26,28 +26,7 @@ Email Service (step 3) requires anyway, so that part needs no extra setup.
 
 ---
 
-## 2. Turn on Cloudflare Turnstile (spam/bot protection on the contact form)
-
-1. Dashboard → **Turnstile** → **Add widget**.
-2. Domain: your site's domain (e.g. `omalographics.com`).
-3. Widget mode: **Managed** (recommended).
-4. Copy the **Site Key** and **Secret Key** it gives you.
-5. Open `contact.html`, find this line near the bottom of the form:
-   ```html
-   <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>
-   ```
-   Replace `1x00000000000000000000AA` with your real **Site Key**.
-   > That placeholder is Cloudflare's public "always passes" test key — it
-   > works for testing but provides **no real protection**. Swap it before
-   > launch.
-6. Add the **Secret Key** as a Pages secret (step 4 below,
-   `TURNSTILE_SECRET_KEY`) — this is what `functions/api/contact.js` uses
-   to actually verify the token server-side. The widget alone proves
-   nothing without this check.
-
----
-
-## 3. Turn on Cloudflare Email Service (for the contact form)
+## 2. Turn on Cloudflare Email Service (for the contact form)
 
 This lets the site email you directly with no third-party API key.
 
@@ -66,15 +45,14 @@ This lets the site email you directly with no third-party API key.
 
 ---
 
-## 4. Set environment variables & secrets for the main site
+## 3. Set environment variables for the main site
 
 Dashboard → your Pages project → **Settings → Environment variables**.
 
 | Name | Type | Value |
 |---|---|---|
-| `CONTACT_EMAIL_TO` | Plaintext | The inbox you verified in step 3 |
+| `CONTACT_EMAIL_TO` | Plaintext | The inbox you verified in step 2 |
 | `CONTACT_EMAIL_FROM` | Plaintext | e.g. `noreply@omalographics.com` (must be on the domain you onboarded to Email Service) |
-| `TURNSTILE_SECRET_KEY` | **Secret (encrypt)** | The Secret Key from step 2 |
 
 Set these for both **Production** and **Preview** environments. Redeploy
 after saving (env var changes need a new deployment to take effect).
@@ -83,23 +61,29 @@ after saving (env var changes need a new deployment to take effect).
 > `CONTACT_EMAIL_FROM` — those are just local-dev fallbacks. The dashboard
 > values above are what production actually uses.
 
+> **Note on spam protection:** this form has no CAPTCHA (Turnstile was
+> removed). The only spam defense is a honeypot field, which stops basic
+> bots but not a determined human or a well-built scraper. If you start
+> getting spam through the form, consider adding Turnstile back, or ask
+> for rate-limiting to be added to `functions/api/contact.js`.
+
 ---
 
-## 5. Test the contact form before launch
+## 4. Test the contact form before launch
 
-Once steps 2–4 are done and redeployed:
+Once steps 2–3 are done and redeployed:
 
 1. Open your `.pages.dev` URL → Contact page → submit the form yourself
    with a real message.
 2. Confirm the email arrives at the inbox you set as `CONTACT_EMAIL_TO`.
 3. If it doesn't arrive, check **Workers & Pages → your project →
    Functions → Real-time Logs** while you submit again — errors from
-   `functions/api/contact.js` (bad Turnstile key, unverified sender, etc.)
+   `functions/api/contact.js` (unverified sender, missing env vars, etc.)
    show up there immediately.
 
 ---
 
-## 6. Point your domain at the site
+## 5. Point your domain at the site
 
 Dashboard → your Pages project → **Custom domains → Set up a custom domain**,
 add `www.omalographics.com` (and `omalographics.com` with a redirect to
@@ -110,7 +94,7 @@ is just a couple of clicks with no external DNS changes needed.
 
 ---
 
-## 7. After you edit `css/styles.css` or `js/script.js`
+## 6. After you edit `css/styles.css` or `js/script.js`
 
 The site ships minified copies (`styles.min.css`, `script.min.js`) that the
 HTML actually loads, for speed. Regenerate them after any edit:
@@ -126,27 +110,25 @@ so visitors' browsers don't keep serving a cached, out-of-date copy.
 
 ---
 
-## 8. If you add new external resources later
+## 7. If you add new external resources later
 
 The Content-Security-Policy in `_headers` only allows scripts/styles/images/
 fonts from a specific, tight list of origins (itself, Google Fonts,
-Cloudflare Turnstile, Google Maps). If you embed something new — a video, a
-booking widget, another analytics tool — it will be **silently blocked** by
-the browser until you add its origin to the matching directive in `_headers`.
-Check the browser console for a "Refused to ... because it violates the
-following Content Security Policy directive" message if something you add
-stops working.
+Google Maps). If you embed something new — a video, a booking widget,
+another analytics tool — it will be **silently blocked** by the browser
+until you add its origin to the matching directive in `_headers`. Check the
+browser console for a "Refused to ... because it violates the following
+Content Security Policy directive" message if something you add stops
+working.
 
 ---
 
-## 9. Quick pre-launch checklist
+## 8. Quick pre-launch checklist
 
-- [ ] Turnstile site key swapped in `contact.html` (step 2)
-- [ ] Turnstile secret key set in Pages dashboard (step 4)
-- [ ] Email Service onboarded + destination address verified (step 3)
-- [ ] `CONTACT_EMAIL_TO` / `CONTACT_EMAIL_FROM` set in Pages dashboard (step 4)
-- [ ] Submitted the contact form yourself once, confirmed you receive the email (step 5)
-- [ ] Custom domain attached, site loads over `https://` (step 6)
+- [ ] Email Service onboarded + destination address verified (step 2)
+- [ ] `CONTACT_EMAIL_TO` / `CONTACT_EMAIL_FROM` set in Pages dashboard (step 3)
+- [ ] Submitted the contact form yourself once, confirmed you receive the email (step 4)
+- [ ] Custom domain attached, site loads over `https://` (step 5)
 - [ ] Replace the social media `href="#"` placeholders in the footer with your real profile links
 - [ ] Replace the placeholder phone numbers / email on the Contact page and in the footer with your real ones
 - [ ] If you get a real street address for the Kampala location, swap it in on the Contact page (locations list + map) and in the footer

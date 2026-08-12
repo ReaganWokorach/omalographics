@@ -11,9 +11,9 @@ name = "SEND_EMAIL"
 # Uncomment to restrict the binding to only ever send to one inbox:
 # destination_address = "you@yourdomain.com"
 
-# Non-secret environment variables. Secrets (TURNSTILE_SECRET_KEY) should be
-# added via the Pages dashboard (Settings > Environment variables > Encrypt)
-# or `wrangler pages secret put`, NOT written here.
+# Non-secret environment variables. Any future secrets should be added via
+# the Pages dashboard (Settings > Environment variables > Encrypt) or
+# `wrangler pages secret put`, NOT written here.
 [vars]
 CONTACT_EMAIL_TO = "you@yourdomain.com"
 CONTACT_EMAIL_FROM = "noreply@yourdomain.com"
