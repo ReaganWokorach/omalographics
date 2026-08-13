@@ -1,6 +1,7 @@
 # =====================================================================
-# Cloudflare Pages custom headers
-# https://developers.cloudflare.com/pages/configuration/headers/
+# Netlify custom headers
+# https://docs.netlify.com/build/configure-builds/file-based-configuration/#headers
+# (Netlify uses the same _headers file format Cloudflare Pages does.)
 # =====================================================================
 
 # ---------- Global security headers (apply to everything) ----------
@@ -31,7 +32,3 @@
 
 /
   Cache-Control: public, max-age=0, must-revalidate
-
-# ---------- API routes: never cache ----------
-/api/*
-  Cache-Control: no-store

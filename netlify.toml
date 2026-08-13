@@ -1,0 +1,13 @@
+# Netlify build configuration.
+# This is a static site — HTML/CSS/JS are already committed as-is (CSS/JS
+# are pre-minified via `npm run minify`), so there is nothing to build.
+
+[build]
+  publish = "."
+  command = ""
+
+# Netlify detects the "contact" form automatically at deploy time by
+# scanning the published HTML for a <form data-netlify="true"> tag (see
+# contact.html). No functions or redirects are needed for form handling —
+# submissions and email notifications are configured entirely in the
+# Netlify dashboard. See SETUP.md.

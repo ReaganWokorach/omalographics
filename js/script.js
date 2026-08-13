@@ -258,8 +258,8 @@
       }
 
       var formData = new FormData(contactForm);
-      var payload = {};
-      formData.forEach(function (value, key) { payload[key] = value; });
+      var encoded = new URLSearchParams();
+      formData.forEach(function (value, key) { encoded.append(key, value); });
 
       if (submitBtn) submitBtn.disabled = true;
       if (formStatus) {
@@ -267,16 +267,19 @@
         formStatus.textContent = 'Sending…';
       }
 
-      fetch('/api/contact', {
+      // Netlify Forms: submissions go to "/" (not a custom API route) as a
+      // standard URL-encoded POST, mirroring what a plain HTML form submit
+      // would send. The "form-name" hidden field above is what lets
+      // Netlify match this to the "contact" form it detected at deploy
+      // time. There's no JSON response to parse — a 200 just means Netlify
+      // accepted it.
+      fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded.toString()
       })
         .then(function (res) {
           if (!res.ok) throw new Error('Request failed');
-          return res.json().catch(function () { return {}; });
-        })
-        .then(function () {
           if (formStatus) {
             formStatus.classList.remove('is-error');
             formStatus.textContent = 'Thanks, your message has been sent. We will be in touch shortly.';
